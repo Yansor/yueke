@@ -1,0 +1,17 @@
+view,
+text {
+	box-sizing: border-box;
+}
+
+.yueke-index {
+	padding: 25px 20px;
+}
+
+.yueke-swiper-area {
+	text-align: center;
+}
+
+.yueke-swiper-here {
+	color: $u-tips-color;
+	font-size: 13px;
+}

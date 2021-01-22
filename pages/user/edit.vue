@@ -1,6 +1,11 @@
 <template>
 	<view class="wrap">
+		
 		<u-form :model="model" :rules="rules" ref="uForm" :errorType="errorType">
+			<view class="avatar-wrap">
+				<u-avatar :src="src" size="140"></u-avatar>
+				<view>点击修改头像</view>
+			</view>
 			<u-form-item :leftIconStyle="{color: '#888', fontSize: '32rpx'}" left-icon="account" label-width="120" :label-position="labelPosition" label="姓名" prop="name">
 				<u-input :border="border" placeholder="请输入姓名" v-model="model.name" type="text"></u-input>
 			</u-form-item>
@@ -42,31 +47,7 @@
 			</view>
 		</view>
 		<u-button @click="submit">提交</u-button>
-		<u-action-sheet :list="actionSheetList" v-model="actionSheetShow" @click="actionSheetCallback"></u-action-sheet>
-		<u-select mode="single-column" :list="selectList" v-model="selectShow" @confirm="selectConfirm"></u-select>
-		<u-picker mode="region" v-model="pickerShow" @confirm="regionConfirm"></u-picker>
-		<u-verification-code seconds="60" ref="uCode" @change="codeChange"></u-verification-code>
-		<view class="u-config-wrap">
-			<view class="u-config-title u-border-bottom">
-				参数配置
-			</view>
-			<view class="u-config-item">
-				<view class="u-item-title">label对齐方式</view>
-				<u-subsection :list="['左边', '上方']" @change="labelPositionChange"></u-subsection>
-			</view>
-			<view class="u-config-item">
-				<view class="u-item-title">边框</view>
-				<u-subsection :current="borderCurrent" :list="['显示', '隐藏']" @change="borderChange"></u-subsection>
-			</view>
-			<view class="u-config-item">
-				<view class="u-item-title">radio、checkbox样式</view>
-				<u-subsection :list="['自适应', '换行', '50%宽度']" @change="radioCheckboxChange"></u-subsection>
-			</view>
-			<view class="u-config-item">
-				<view class="u-item-title">错误提示方式</view>
-				<u-subsection :list="['message', 'toast', '下划线', '输入框']" @change="errorChange"></u-subsection>
-			</view>
-		</view>
+		
 	</view>
 </template>
 
@@ -77,6 +58,8 @@ export default {
 		return {
 			modelCalendar: 'range',
 			showCalendar: false,
+			src: 'http://pic2.sc.chinaz.com/Files/pic/pic9/202002/hpic2119_s.jpg',
+			text: '周红',
 			model: {
 				name: '',
 				sex: '',
@@ -440,6 +423,9 @@ export default {
 <style scoped lang="scss">
 .wrap {
 	padding: 30rpx;
+}
+.avatar-wrap {
+	text-align: center;
 }
 
 .agreement {

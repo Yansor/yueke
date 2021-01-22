@@ -1,36 +1,30 @@
 <template>
-	<view class="">
-		<view class="u-card-wrap">
-			<u-card @click="click" @head-click="headClick" :title="title" :sub-title="subTitle" :thumb="thumb" :padding="padding" :border="border">
-				<view class="" slot="body"> 
-					<view class="u-body-item u-flex u-border-bottom u-col-between u-p-t-0">
-						<view class="u-body-item-title u-line-2">
-							瓶身描绘的牡丹一如你初妆，冉冉檀香透过窗心事我了然，宣纸上走笔至此搁一半
-						</view>
-						<image src="https://img11.360buyimg.com/n7/jfs/t1/94448/29/2734/524808/5dd4cc16E990dfb6b/59c256f85a8c3757.jpg" mode="aspectFill"></image>
+	<view class="u-demo">
+		<view class="u-demo-wrap" style="background-color: #ffffff;">
+			<u-collapse v-if="key" :item-style="itemStyle" :body-style="bodyStyle" @change="change">
+				<u-collapse-item :index="index" @change="itemChange" :title="item.head" v-for="(item, index) in itemList" :key="index" :class="u-border-bottom">
+					<view class="item-wrap">
+						<view class="title">如何登录学堂在线?</view>
+						<view class="body">{{item.body}}</view>
+						<u-line color="#D1D1D1" class="u-m-t-15 u-m-b-15"></u-line>
 					</view>
-				</view>
-			</u-card>
-			<u-card @click="click" @head-click="headClick" :title="title" :sub-title="subTitle" :thumb="thumb" :padding="padding" :border="border">
-				<view class="" slot="body"> 
-					<view class="u-body-item u-flex u-row-between u-p-b-0">
-						<view class="u-body-item-title u-line-2">
-							釉色渲染仕女图韵味被私藏，而你嫣然的一笑如含苞待放
-						</view>
-						<image src="https://img12.360buyimg.com/n7/jfs/t1/102191/19/9072/330688/5e0af7cfE17698872/c91c00d713bf729a.jpg" mode="aspectFill"></image>
+					<view class="item-wrap">
+						<view class="title">如何登录学堂在线?</view>
+						<view class="body">{{item.body}}</view>
+						<u-line color="#D1D1D1" class="u-m-t-15 u-m-b-15"></u-line>
 					</view>
-				</view>
-			</u-card>
-			<u-card @click="click" @head-click="headClick" :title="title" :sub-title="subTitle" :thumb="thumb" :padding="padding" :border="border">
-				<view class="" slot="body"> 
-					<view class="u-body-item u-flex u-border-bottom u-col-between u-p-t-0">
-						<view class="u-body-item-title u-line-2">
-							瓶身描绘的牡丹一如你初妆，冉冉檀香透过窗心事我了然，宣纸上走笔至此搁一半
-						</view>
-						<image src="https://img11.360buyimg.com/n7/jfs/t1/94448/29/2734/524808/5dd4cc16E990dfb6b/59c256f85a8c3757.jpg" mode="aspectFill"></image>
+					<view class="item-wrap">
+						<view class="title">如何登录学堂在线?</view>
+						<view class="body">{{item.body}}</view>
+						<u-line color="#D1D1D1" class="u-m-t-15 u-m-b-15"></u-line>
 					</view>
-				</view>
-			</u-card>
+					<view class="item-wrap">
+						<view class="title">如何登录学堂在线?</view>
+						<view class="body">{{item.body}}</view>
+						<u-line color="#D1D1D1" class="u-m-t-15 u-m-b-15"></u-line>
+					</view>
+				</u-collapse-item>
+			</u-collapse>
 		</view>
 	</view>
 </template>
@@ -39,44 +33,66 @@
 	export default {
 		data() {
 			return {
-				title: '素胚勾勒出青花，笔锋浓转淡',
-				subTitle: '',//'2020-05-15',
-				thumb: '',//'http://pic2.sc.chinaz.com/Files/pic/pic9/202002/hpic2119_s.jpg',
-				padding: 20,
-				bottomSlot: true,
-				border: true
+				itemList: [{
+					head: "账号问题",
+					body: "只要我们正确择取一个合适的参照物乃识的东西便会扑面而来：闪光的道德、妙异的智慧、优美的人情…… 赏识不是单向的施舍，是智慧与智慧的主动碰撞",
+					show: false,
+				}, {
+					head: "认证问题",
+					body: "学会欣赏，实际是一种积极生活的态度，是生活的调味品，会在欣赏中发现生活的美",
+					show: false,
+				}, {
+					head: "课程问题",
+					body: "但是据说雕刻大卫像所用的这块大理石，曾被多位雕刻家批评得一无是处，有些人认为这块大理石采凿得不好，有些人嫌它的纹路不够美，用它绝对雕不出好的艺术品，总之它被批评为一块不受人赏识的普通石头",
+					show: false,
+				}],
+				hoverClass: 'hover2',
+				itemStyle: {
+					color: "red"
+				},
+				bodyStyle: {
+					//height: '100rpx',
+				},
+				key: true
+			}
+		},
+		onShow() {
+			this.bodyStyle = {
+				//overflow: 'hidden'
 			}
 		},
 		methods: {
-			borderChange(index) {
-				this.border = !index;
+			itemChange(e) {
+				console.log(e);
 			},
-			click(index) {
-				console.log(index);
-			},
-			headClick(index) {
-				console.log(index);
-			}
 		}
 	}
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 	.u-demo {
-		padding-top: 0;
+		padding: 20rpx;
 	}
 	
-	.u-body-item {
+	.u-demo-wrap ::v-deep .u-collapse-item {
+		border-bottom: 1rpx solid #F1F1F1;
+		padding: 15rpx 0;
+	}
+	.u-demo-wrap ::v-deep .u-collapse-title {
+		font-weight: bold;	
+		font-size: 36rpx;
+	}
+	.u-demo-wrap ::v-deep .u-collapse-content {
+		padding: 0 0 20rpx 0;
+	}
+	.u-demo-wrap .title {
 		font-size: 32rpx;
-		color: #333;
-		padding: 20rpx 10rpx;
+		line-height: 60rpx;
+		color: #333333;
 	}
-		
-	.u-body-item image {
-		width: 120rpx;
-		flex: 0 0 120rpx;
-		height: 120rpx;
-		border-radius: 8rpx;
-		margin-left: 12rpx;
+	
+	.u-demo-wrap .title {
+		line-height: 60rpx;
 	}
+	
 </style>

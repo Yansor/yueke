@@ -12,15 +12,25 @@
 	// },
 	"pages": [
 		{
-			"path": "pages/help/index",
+			"path": "pages/user/index",
 			"style": {
-				"navigationBarTitleText": "帮助与反馈"
+				"navigationBarTitleText": "个人中心"
 			}
 		},
 		{
-			"path": "pages/user/index",
+		    "path" : "pages/user/course/index",
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": "我的约课",
+		        "enablePullDownRefresh": false
+		    }
+		    
+		},
+		
+		{
+			"path": "pages/help/index",
 			"style": {
-				"navigationBarTitleText": ""
+				"navigationBarTitleText": "帮助与反馈"
 			}
 		},
 		{
@@ -44,7 +54,8 @@
 				"navigationBarTitleText": "个人资料"
 			}
 		}
-	],
+	    
+    ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uView",

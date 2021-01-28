@@ -26,8 +26,8 @@
 			</view>
 		</view>
 		<view class="bottom">
-			<u-button :custom-style="cancelStyle" :shape="shape">取消</u-button>
-			<u-button :custom-style="nextStyle" :shape="shape">下一步</u-button>
+			<u-button :custom-style="cancelStyle" :hair-line="hairLine" :shape="shape">取消</u-button>
+			<u-button :custom-style="nextStyle" :hair-line="hairLine" :shape="shape">下一步</u-button>
 		</view>
 		
 	</view>
@@ -50,6 +50,7 @@
 					color: "#000"
 				},
 				shape: "circle",
+				hairLine: false,
 				cancelStyle: {
 					width: "180rpx",
 					color: "#9f9f9f"
@@ -57,7 +58,8 @@
 				nextStyle: {
 					width: "480rpx",
 					backgroundColor: "#fae800",
-					color: "#000"
+					color: "#000",
+					borer: "none"
 				}
 			}
 		},

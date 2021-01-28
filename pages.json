@@ -12,6 +12,22 @@
 	// },
 	"pages": [
 		{
+			"path": "pages/course/index",
+			"style": {
+				"navigationBarTitleText": "选择课程"
+			}
+		},
+		{
+		    "path" : "pages/user/course/index",
+		    "style" :                                                                                    
+		    {
+		        "navigationBarTitleText": "我的约课",
+		        "enablePullDownRefresh": false
+		    }
+		    
+		},
+		
+		{
 			"path": "pages/user/index",
 			"style": {
 				"navigationBarTitleText": "个人中心"
@@ -45,9 +61,6 @@
 				"navigationBarTitleText": "详情页面"
 			}
 		},
-		
-		
-		
 		{
 			"path": "pages/user/edit",
 			"style": {
